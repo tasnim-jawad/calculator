@@ -20,6 +20,9 @@ function printOutput(num) {
 }
 
 function getFormattedNumber(num){ //jokhon koma dewar proyojon hobe tokhon ei function er vitor diye number nite hobe
+    if(num == "-"){
+        return "";
+    }
     let n = Number(num);  //string-ke number formet-e niye ashe
     let value =n.toLocaleString("en");  //number-ke coma diye alada korar jonno toLocalString bebohar hoy
     return value; //jekhane ei function call kora hobe shekhane ei vaue return korbe
