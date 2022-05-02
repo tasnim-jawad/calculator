@@ -24,7 +24,6 @@ function getFormattedNumber(num){ //jokhon koma dewar proyojon hobe tokhon ei fu
     let value =n.toLocaleString("en");  //number-ke coma diye alada korar jonno toLocalString bebohar hoy
     return value; //jekhane ei function call kora hobe shekhane ei vaue return korbe
 }
-printOutput("5435435345")
 
 function reverseNumberFormet(num) {  //jokhon koma uthay nite hobe tokhon ei function er vitor diye number nite hobe
     return Number(num.replace(/,/g,'')); 
@@ -44,7 +43,32 @@ for (let i = 0; i < operator.length; i++) {
                 output = output.slice(0,output.length-1);      //output jeta peyechi setar 0 index theke shuru kore shesher agerta porjonto kete nibe
                 printOutput(output)                                 //notun output print koredibe
             }
+        }else{
+            let output = getOutput();
+            let history = getHistory();
+            if (output != "") {             //jodi output khali na thake tahole shamne jabe
+                output =reverseNumberFormet(output);
+                history = history + output;     //output historyte jog hobe
+                if (this.id == "=") {
+                    let result = eval(history);
+                    printOutput(result);
+                    printHistory("");
+                }else{
+                    history = history + this.id;
+                    printHistory(history);
+                    printOutput("");
+                }
+            }
         }
     });
 }
 
+let number = document.getElementsByClassName("number")
+for (let i = 0; i < number.length; i++) {
+    const element = number[i];
+    element.addEventListener('click' , function() {
+       let output = reverseNumberFormet(getOutput());
+        output = output + this.id;
+        printOutput(output);
+    });
+}
