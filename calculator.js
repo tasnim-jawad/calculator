@@ -38,7 +38,6 @@ for (let i = 0; i < operator.length; i++) {
             printOutput("")
         }else if(this.id == "backspace"){
             let output =  reverseNumberFormet(getOutput()).toString(); //output niye koma uthano hoyeche ebong number ke  string banano hochche
-            
             if(output){                                   //jodi etar man thake
                 output = output.slice(0,output.length-1);      //output jeta peyechi setar 0 index theke shuru kore shesher agerta porjonto kete nibe
                 printOutput(output)                                 //notun output print koredibe
