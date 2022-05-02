@@ -9,29 +9,30 @@
 </head>
 <body>
     <div class="calculator-body">
-        <div class="output">
-            <div class="output-befor">85567867856</div>
-            <div class="output-now">678543525278658568</div>
+        <div class="display">
+            <div class="history" id="history-value">855856</div>
+            <div class="output" id="output-value">0000000</div>
         </div>
-        <button class="two-span">ac</button>
-        <button>del</button>
-        <button>/</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>*</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>+</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>-</button>
-        <button>0</button>
-        <button>.</button>
-        <button class="two-span">=</button>
+        <button class="operator two-span" id="clear">ac</button>
+        <button class="operator" id="backspace">del</button>
+        <button class="operator" id="/"> &#247; </button>
+        <button class="number" id="7">7</button>
+        <button class="number" id="8">8</button>
+        <button class="number" id="9">9</button>
+        <button class="operator" id="*">&times;</button>
+        <button class="number" id="4">4</button>
+        <button class="number" id="5">5</button>
+        <button class="number" id="6">6</button>
+        <button class="operator" id="+">+</button>
+        <button class="number" id="1">1</button>
+        <button class="number" id="2">2</button>
+        <button class="number" id="3">3</button>
+        <button class="operator" id="-">-</button>
+        <button class="number" id="0">0</button>
+        <button class="number" id=".">.</button>
+        <button class="operator two-span" id="=">=</button>
 
     </div>
+    <script src="calculator.js"></script>
 </body>
 </html>
