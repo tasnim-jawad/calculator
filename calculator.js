@@ -48,9 +48,15 @@ for (let i = 0; i < operator.length; i++) {
         }else{
             let output = getOutput();
             let history = getHistory();
-            if (output != "") {             //jodi output khali na thake tahole shamne jabe
-                output =reverseNumberFormet(output);
+            if (output == "" && history != "") {
+                if (isNaN(history[history.length-1])) {
+                    history = history.slice(0,history.length-1);
+                }
+            }
+            if (output != "" || history != "") {             //jodi output khali na thake tahole shamne jabe
+                output = output == ""?  output:reverseNumberFormet(output);
                 history = history + output;     //output historyte jog hobe
+                
                 if (this.id == "=") {
                     let result = eval(history);
                     printOutput(result);
