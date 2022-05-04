@@ -20,16 +20,30 @@ function printOutput(num) {
 }
 
 function getFormattedNumber(num){ //jokhon koma dewar proyojon hobe tokhon ei function er vitor diye number nite hobe
+    let n;
     if(num == "-"){
         return "";
     }
-    let n = Number(num);  //string-ke number formet-e niye ashe
-    let value =n.toLocaleString("en");  //number-ke coma diye alada korar jonno toLocalString bebohar hoy
+    if(num[num.length-1] == "."){
+         n = Number(num)+".";
+    }
+    else{
+        n = Number(num);  //string-ke number formet-e niye ashe
+    }
+    let value =n.toLocaleString("en-IN", {maximumFractionDigits: 4});  //number-ke coma diye alada korar jonno toLocalString bebohar hoy
+    
+    // alert(value)
     return value; //jekhane ei function call kora hobe shekhane ei vaue return korbe
 }
 
 function reverseNumberFormet(num) {  //jokhon koma uthay nite hobe tokhon ei function er vitor diye number nite hobe
-    return Number(num.replace(/,/g,'')); 
+    if(num[num.length-1] == "."){
+        return Number(num.replace(/,/g,''))+"."; 
+    }
+    else{
+        return Number(num.replace(/,/g,''));
+    }
+     
 }
 
 let operator = document.getElementsByClassName("operator")
@@ -75,8 +89,12 @@ let number = document.getElementsByClassName("number")
 for (let i = 0; i < number.length; i++) {
     const element = number[i];
     element.addEventListener('click' , function() {
-       let output = reverseNumberFormet(getOutput());
-        output = output + this.id;
-        printOutput(output);
+        let output = getOutput()
+        if(output[output.length-4] != "." && output[output.length-5] != "."){
+            output = reverseNumberFormet(output);
+            output = output + this.id;
+            // alert(output)
+            printOutput(output);
+        }
     });
 }
